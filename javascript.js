@@ -13,27 +13,34 @@ console.log("Rock Paper Scissors Game");
     }
 
     // Example usage:
-    const computerChoice = getComputerChoice();
-    console.log("Computer choice:", computerChoice);
+
 
 
 // Write logic for user choice
-    function getUserChoice() {
-        let userChoice = prompt("Enter rock, paper, or scissors:");
-        userChoice = userChoice.toLowerCase();
-
-        while (userChoice !== "rock" && userChoice !== "paper" && userChoice !== "scissors") {
-            userChoice = prompt("Invalid choice. Please enter rock, paper, or scissors:");
-            userChoice = userChoice.toLowerCase();
-        }
-        return userChoice;
+    // function getUserChoice() {
+    //     const rockButton = document.getElementById("rock");
+    //     const paperButton = document.getElementById("paper");
+    //     const scissorsButton = document.getElementById("scissors");   
         
-    }
+    //     let userChoice = "";
+        
+    //     rockButton.addEventListener("click", () => {
+    //         userChoice = "rock";
+    //         console.log("User choice:", userChoice);
+    //     });
+        
+    //     paperButton.addEventListener("click", () => {
+    //         userChoice = "paper";
+    //         console.log("User choice:", userChoice);
+    //     });
+        
+    //     scissorsButton.addEventListener("click", () => {
+    //         userChoice = "scissors";
+    //         console.log("User choice:", userChoice);
+    //     });
 
-    // Example usage:
-    const userChoice = getUserChoice();
-    console.log("User choice:", userChoice);
-
+    //     return userChoice;
+    // }
 
 // Declare player score and computer score
     let playerScore = 0;
@@ -56,31 +63,73 @@ console.log("Rock Paper Scissors Game");
         }
     }
 
-    // Example usage:
-    const result = playRound(userChoice, computerChoice);
-    console.log(result);
-    console.log(`Player Score: ${playerScore}, Computer Score: ${computerScore}`);
 
 // Logic for playing multiple rounds
     function game() {
-        for (let i = 0; i < 5; i++) {
-            const roundCount = i;
-            const userChoice = getUserChoice();
-            const computerChoice = getComputerChoice();
-            const result = playRound(userChoice, computerChoice);
-            console.log(result);
-            console.log(`Player Score: ${playerScore}, Computer Score: ${computerScore}`);
-            console.log(`Round ${roundCount} completed.`);
-        }
+        //add event listener to call playRound when user clicks a button
+        const rockButton = document.getElementById("rock");
+        const paperButton = document.getElementById("paper");
+        const scissorsButton = document.getElementById("scissors");
+        const resultDiv = document.getElementById("result");
 
-        if (playerScore > computerScore) {
-            console.log("Congratulations! You won the game!");
-        } else if (playerScore < computerScore) {
-            console.log("Sorry! You lost the game.");
-        } else {
-            console.log("The game is a tie!");
-        }
-    }
+        rockButton.addEventListener("click", () => {
+            //Click "rock" → the rockButton listener runs → playRound runs → playerScore becomes 1 
+            const computerSelection = getComputerChoice();
+            const result = playRound("rock", computerSelection);
+            
+            // resultDiv updates. The listener callback ends.
+            resultDiv.textContent = result;
 
-    // Start the game
+            document.getElementById("player-score").textContent = playerScore;
+            document.getElementById("computer-score").textContent = computerScore;
+            
+                // Check for game over condition
+                //update the resultDiv to show the final result
+                if (playerScore == 5 || computerScore == 5) {
+                    if (playerScore > computerScore) {
+                        resultDiv.textContent = "Congratulations! You won the game!";
+                    } else {
+                        resultDiv.textContent = "Game over! The computer won the game!";
+                }
+            }
+        });
+
+        paperButton.addEventListener("click", () => {
+            const computerSelection = getComputerChoice();
+            const result = playRound("paper", computerSelection);
+            resultDiv.textContent = result;
+
+            document.getElementById("player-score").textContent = playerScore;
+            document.getElementById("computer-score").textContent = computerScore;
+                // Check for game over condition
+                if (playerScore == 5 || computerScore == 5) {
+                    if (playerScore > computerScore) {
+                        resultDiv.textContent = "Congratulations! You won the game!";
+                    } else {
+                        resultDiv.textContent = "Game over! The computer won the game!";
+                }
+            }
+        });
+
+        scissorsButton.addEventListener("click", () => {
+            const computerSelection = getComputerChoice();
+            const result = playRound("scissors", computerSelection);
+            resultDiv.textContent = result;
+
+            document.getElementById("player-score").textContent = playerScore;
+            document.getElementById("computer-score").textContent = computerScore;
+                    
+                // Check for game over condition
+                if (playerScore == 5 || computerScore == 5) {
+                    if (playerScore > computerScore) {
+                        resultDiv.textContent = "Congratulations! You won the game!";
+                    } else {
+                        resultDiv.textContent = "Game over! The computer won the game!";
+                }
+            }
+        });
+}
+
     game();  
+
+

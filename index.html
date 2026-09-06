@@ -3,11 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <script src="javascript.js" defer></script>
     <title>Odin Rock Paper Scissors</title>
-    <script src="javascript.js"></script>
-
 </head>
 
+<body>
+    <h1>Odin Rock Paper Scissors</h1>
+
+    <!-- Add a div for displaying results and change all of your console.logs into DOM methods. -->
+
+    <div id="game">
+        <p>Choose your weapon:</p>
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissors">Scissors</button>
+    </div>
+    <!-- Add a div for displaying the score and change all of your console.logs into DOM methods. -->
+    <div id="score">
+        <p>Player Score: <span id="player-score">0</span></p>
+        <p>Computer Score: <span id="computer-score">0</span></p>
+    </div>
+
+    <div id="result"></div>
+</body>
 
 </html>
 
