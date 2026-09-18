@@ -12,10 +12,6 @@ console.log("Rock Paper Scissors Game");
         return choices[randomIndex];
     }
 
-    // Example usage:
-
-
-
 // Write logic for user choice
     // function getUserChoice() {
     //     const rockButton = document.getElementById("rock");

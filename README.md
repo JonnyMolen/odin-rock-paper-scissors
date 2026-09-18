@@ -1,2 +1,8 @@
 # odin-rock-paper-scissors
-A rock paper scissors game
+Short Description: A browser only rock, paper, scissors game
+
+Installation Usage:
+- Open in browser
+- Choose your weapon of choice (Rock, Paper, or Scissors)
+- Play against the computer. 
+- First to 5 rounds wins!
